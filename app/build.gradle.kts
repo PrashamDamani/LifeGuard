@@ -1,14 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
-    alia("libs.plugins.jetbrains.kotlin.plugin.compose")
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.example.lifeguard"
-    compileSdk {
-        version = release(35)
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.lifeguard"
@@ -45,6 +42,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
@@ -52,11 +50,10 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+    
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.6")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.6")
+    implementation("androidx.compose.material:material-icons-extended")  
     implementation("androidx.compose.animation:animation")
     implementation("androidx.navigation:navigation-compose:2.8.1")
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.material:material-icons-extended")
 }
